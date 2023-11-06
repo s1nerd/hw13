@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   FormControl,
   FormLabel,
@@ -85,6 +86,7 @@ export default function BookForm({ bookData }) {
   return (
     <form onSubmit={handleSubmit}>
       <VStack spacing={4}>
+        <Box>
         <FormControl>
           <FormLabel>Title</FormLabel>
           <Input name="title" required defaultValue={bookData?.title} />
@@ -133,6 +135,7 @@ export default function BookForm({ bookData }) {
           </FormControl>
         )}
 
+</Box>
         <Button type="submit">{bookData ? "Edit Book" : "Create Book"}</Button>
       </VStack>
     </form>

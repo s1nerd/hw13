@@ -64,11 +64,11 @@ const Navbar = () => {
           </Button>
         ) : (
           <Button
-            colorScheme="blue"
+            colorScheme="red" // Changed color to red for "Logout" button
             onClick={() => {
               window.localStorage.removeItem("token");
               setIsLogin(false);
-              navigate("/")
+              navigate("/");
             }}
           >
             Logout
@@ -87,8 +87,16 @@ const Navbar = () => {
                 e.target.password.value
               );
               window.localStorage.setItem("token", token.token);
+              setIsLogin(true); // Updated to set isLogin to true upon successful login
               navigate("/");
               onClose();
+              toast({
+                title: "Success",
+                description: "Login successful!",
+                status: "success",
+                duration: 3000,
+                isClosable: true,
+              });
             } catch (err) {
               toast({
                 title: "Error",
